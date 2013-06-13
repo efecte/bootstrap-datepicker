@@ -355,11 +355,22 @@
 						}).first().css('z-index'))+10;
 			var offset = this.component ? this.component.parent().offset() : this.element.offset();
 			var height = this.component ? this.component.outerHeight(true) : this.element.outerHeight(true);
+
+            /* Place picker below or above input ? */
+            var belowOffset = offset.top + height;
+            var aboveOffset = offset.top - this.picker.outerHeight(true) - 12;
+            var enoughPlaceBelow = (belowOffset + this.picker.outerHeight(true)) < $(window).height();
+
 			this.picker.css({
-				top: offset.top + height,
+				top: enoughPlaceBelow ? belowOffset : aboveOffset,
 				left: offset.left,
 				zIndex: zIndex
 			});
+            if (enoughPlaceBelow) {
+                this.picker.removeClass('above');
+            } else {
+                this.picker.addClass('above');
+            }
 		},
 
 		_allow_update: true,

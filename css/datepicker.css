@@ -52,6 +52,19 @@
   top: -6px;
   left: 7px;
 }
+.datepicker-dropdown.above:before {
+  border-top: 7px solid #ccc;
+  border-top-color: rgba(0, 0, 0, 0.2);
+  border-bottom: none;
+  bottom: -7px;
+  top: auto;
+}
+.datepicker-dropdown.above:after {
+  border-top: 6px solid #ffffff;
+  border-bottom: none;
+  bottom: -6px;
+  top: auto;
+}
 .datepicker > div {
   display: none;
 }
